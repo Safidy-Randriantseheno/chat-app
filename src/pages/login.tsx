@@ -5,9 +5,12 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
+  const handleSubmit = (event:any) => {
+    event.preventDefault();
+  }
   return (
     <div className='log1'>
-      <form className='log2'>
+      <form className='log2' onSubmit={handleSubmit}>
         <div className="log">
           <label>
             Username:
@@ -28,7 +31,7 @@ const Login = () => {
             />
           </label>
         </div>
-        <div className='bouton1'  
+        <div className='bouton1' 
         onClick={
             () => {
                 if(localStorage.getItem(username as string) === password){
@@ -45,6 +48,7 @@ const Login = () => {
         </div>
       </form>
     </div>
+  
   );
 };
 

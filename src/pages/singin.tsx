@@ -57,12 +57,16 @@ const Signin = () => {
                 <div className='bouton'
                     onClick={
                         () => {
+                            if (username.trim(),password.trim() === '') {
+                                throw new Error("Le label ne peut pas être vide.");
+                              }
+                              
                             if(password === confirmPassword){
                                 localStorage.setItem(username as string, password as string)
                                 localStorage.setItem("currentUser",username as string)
                                 router.push('/chatpublic')
                             } else {
-                                alert("Veillez verifier votre mot de passe")
+                                alert("please reenter your password")
                             }
                         }
                     }
